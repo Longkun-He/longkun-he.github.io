@@ -423,7 +423,7 @@ footer {
 .chart-wrap { position:relative; width:100%; }
 .chart-wrap svg { display:block; width:100%; overflow:visible; }
 .chart-grid { stroke:#e5edf0; stroke-width:1; stroke-dasharray:4 5; }
-.chart-frame { fill:none; stroke:#8aa1ad; stroke-width:1; }
+.chart-frame { fill:none; stroke:#000; stroke-width:1; }
 .chart-tick { font-size:12px; fill:#000; }
 .chart-label { font-size:12px; fill:#000; font-weight:600; }
 .chart-line { stroke:#856f9d; fill:none; stroke-width:2.5; }
