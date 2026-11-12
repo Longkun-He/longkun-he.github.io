@@ -47,8 +47,8 @@
     const annual = [...d.annual].sort((a,b) => a.year-b.year);
     if (!papers.length || !annual.length) throw new Error('data unavailable');
     function renderAxes(svg, years, maxValue, xLabel) {
-      const lo = years[0], hi = years[years.length - 1];
-      const x = year => 90 + (year - lo) / Math.max(1, hi - lo) * 700;
+      const lo = years[0] - 0.5, hi = years[years.length - 1] + 0.5;
+      const x = year => 90 + (year - lo) / (hi - lo) * 700;
       const y = value => 255 - value / maxValue * 205;
       // Use citation ticks in multiples of ten and keep the upper bound visible.
       const step = Math.max(10, Math.ceil(maxValue / 50) * 10);

@@ -424,11 +424,11 @@ footer {
 .chart-wrap svg { display:block; width:100%; overflow:visible; }
 .chart-grid { stroke:#e5edf0; stroke-width:1; stroke-dasharray:4 5; }
 .chart-frame { fill:none; stroke:#8aa1ad; stroke-width:1; }
-.chart-tick { font-size:12px; fill:#738a98; }
-.chart-label { font-size:12px; fill:#587080; font-weight:600; }
+.chart-tick { font-size:12px; fill:#000; }
+.chart-label { font-size:12px; fill:#000; font-weight:600; }
 .chart-line { stroke:#856f9d; fill:none; stroke-width:2.5; }
 .chart-dot { fill:#856f9d; stroke:white; stroke-width:2; }
-.chart-bubble { fill:#77b2c2; fill-opacity:.53; stroke:#5595a9; stroke-width:1.5; cursor:pointer; }
+.chart-bubble { fill:#b9dff2; fill-opacity:.85; stroke:#72acc8; stroke-width:1.5; cursor:pointer; }
 .chart-bubble:hover, .chart-bubble:focus { fill-opacity:.88; stroke:#315e73; outline:none; }
 .citation-tooltip { position:absolute; z-index:3; left:50%; top:8%; transform:translateX(-50%); max-width:min(360px,90%); padding:12px 15px; border-radius:14px; background:#fff; box-shadow:0 12px 35px #283c4d38; font-size:12px; color:#496173; pointer-events:none; }
 .citation-tooltip strong { color:#223b4b; display:block; margin-bottom:4px; }
@@ -441,4 +441,4 @@ footer {
 /* The two citation views use separate vertical scales and year labels. */
 .citation-plot { padding-top: 18px; }
 .citation-plot + .citation-plot { border-top: 1px solid var(--line); margin-top: 22px; }
-.citation-plot h4 { font-size: 16px; margin: 0 0 8px; color: #4a6375; }
+.citation-plot h4 { font-size: 16px; margin: 0 0 8px; color: #000; }
