@@ -437,3 +437,7 @@ footer {
 @media (max-width:720px) { .citation-card { padding:18px 12px; } .chart-tick,.chart-label { font-size:13px; } }
 .chart-wrap { overflow-x:auto; }
 .chart-wrap svg { min-width:600px; }
+/* The two citation views use separate vertical scales and year labels. */
+.citation-plot { padding-top: 18px; }
+.citation-plot + .citation-plot { border-top: 1px solid var(--line); margin-top: 22px; }
+.citation-plot h4 { font-size: 16px; margin: 0 0 8px; color: #4a6375; }

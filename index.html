@@ -86,12 +86,23 @@
             <div><span class="eyebrow">Citation overview</span><h3>Research in context</h3></div>
             <a href="https://scholar.google.com/citations?user=cuvYdUwAAAAJ" class="citation-source">Google Scholar ↗</a>
           </div>
-          <div class="citation-legend"><span><i class="legend-bubble"></i> Publications · current citations</span><span><i class="legend-line"></i> Cumulative citations</span></div>
-          <div class="chart-wrap">
-            <svg id="citation-svg" role="img" aria-label="Publication citations and cumulative citations by year" viewBox="0 0 900 370"></svg>
-            <div id="citation-tooltip" class="citation-tooltip" hidden></div>
+          <!-- The first chart tracks citation growth by citing year. -->
+          <div class="citation-plot">
+            <h4>Cumulative citations</h4>
+            <div class="chart-wrap">
+              <svg id="cumulative-svg" role="img" aria-label="Cumulative citations by citation year" viewBox="0 0 900 330"></svg>
+            </div>
+            <p class="chart-note">Citations accumulated by citing year; the current year is incomplete.</p>
           </div>
-          <p class="chart-note">Bubbles: publication year and current citations. Line: citations accumulated by citing year. Overlapping works share a bubble; hover or focus to see all titles.</p>
+          <!-- The second chart shows all Scholar entries by publication year. -->
+          <div class="citation-plot">
+            <h4>Citations per publication</h4>
+            <div class="chart-wrap">
+              <svg id="publications-svg" role="img" aria-label="Current citations per publication by publication year" viewBox="0 0 900 330"></svg>
+              <div id="citation-tooltip" class="citation-tooltip" hidden></div>
+            </div>
+            <p class="chart-note">Each bubble shows current citations by publication year. Overlapping works share a bubble; hover or focus to see all titles.</p>
+          </div>
           <p id="citation-updated" class="chart-note" aria-live="polite">Loading citation data…</p>
           <div id="citation-details" class="citation-details" aria-live="polite"></div>
           <noscript>Interactive chart requires JavaScript. View the <a href="https://scholar.google.com/citations?user=cuvYdUwAAAAJ">Google Scholar profile</a>.</noscript>
