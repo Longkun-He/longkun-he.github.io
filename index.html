@@ -80,6 +80,22 @@
           </div>
           <p>Peer-reviewed journal articles. * indicates co-first authorship.</p>
         </div>
+        <!-- CITATION CHART: publication bubbles and yearly citation history -->
+        <div class="citation-card" id="citation-chart">
+          <div class="citation-card-header">
+            <div><span class="eyebrow">Citation overview</span><h3>Research in context</h3></div>
+            <a href="https://scholar.google.com/citations?user=cuvYdUwAAAAJ" class="citation-source">Google Scholar ↗</a>
+          </div>
+          <div class="citation-legend"><span><i class="legend-bubble"></i> Publications · current citations</span><span><i class="legend-line"></i> Cumulative citations</span></div>
+          <div class="chart-wrap">
+            <svg id="citation-svg" role="img" aria-label="Publication citations and cumulative citations by year" viewBox="0 0 900 370"></svg>
+            <div id="citation-tooltip" class="citation-tooltip" hidden></div>
+          </div>
+          <p class="chart-note">Bubbles: publication year and current citations. Line: citations accumulated by citing year. Overlapping works share a bubble; hover or focus to see all titles.</p>
+          <p id="citation-updated" class="chart-note" aria-live="polite">Loading citation data…</p>
+          <div id="citation-details" class="citation-details" aria-live="polite"></div>
+          <noscript>Interactive chart requires JavaScript. View the <a href="https://scholar.google.com/citations?user=cuvYdUwAAAAJ">Google Scholar profile</a>.</noscript>
+        </div>
         <article class="paper">
           <span class="year">2026</span>
           <div>
@@ -212,5 +228,6 @@
         </div>
       </footer>
     </main>
+      <script src="citations.js" defer></script>
   </body>
 </html>

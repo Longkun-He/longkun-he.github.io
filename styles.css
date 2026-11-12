@@ -411,3 +411,29 @@ footer {
 @media (max-width:720px) {
   .orb { min-height: 300px; }
 }
+/* Citation chart */
+.citation-card { margin: 10px 0 38px; padding: 26px; border: 1px solid white; border-radius: 24px; background: var(--glass); box-shadow: 0 12px 40px #4b6f8010; }
+.citation-card-header { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.citation-card-header h3 { margin:3px 0; font-size:22px; letter-spacing:-.03em; }
+.citation-source { font-size:13px; color:#587b90; text-decoration:none; white-space:nowrap; }
+.citation-legend { display:flex; flex-wrap:wrap; gap:20px; color:#637b8a; font-size:12px; margin:16px 0 8px; }
+.citation-legend span { display:flex; align-items:center; gap:7px; }
+.legend-bubble { width:12px; height:12px; border:1px solid #619bb5; border-radius:50%; background:#91c3d280; }
+.legend-line { width:22px; border-top:2px solid #856f9d; }
+.chart-wrap { position:relative; width:100%; }
+.chart-wrap svg { display:block; width:100%; overflow:visible; }
+.chart-grid { stroke:#dfe8eb; stroke-width:1; }
+.chart-tick { font-size:12px; fill:#738a98; }
+.chart-label { font-size:12px; fill:#587080; font-weight:600; }
+.chart-line { stroke:#856f9d; fill:none; stroke-width:2.5; }
+.chart-dot { fill:#856f9d; stroke:white; stroke-width:2; }
+.chart-bubble { fill:#77b2c2; fill-opacity:.53; stroke:#5595a9; stroke-width:1.5; cursor:pointer; }
+.chart-bubble:hover, .chart-bubble:focus { fill-opacity:.88; stroke:#315e73; outline:none; }
+.citation-tooltip { position:absolute; z-index:3; left:50%; top:8%; transform:translateX(-50%); max-width:min(360px,90%); padding:12px 15px; border-radius:14px; background:#fff; box-shadow:0 12px 35px #283c4d38; font-size:12px; color:#496173; pointer-events:none; }
+.citation-tooltip strong { color:#223b4b; display:block; margin-bottom:4px; }
+.chart-note { margin:12px 0 0; font-size:12px; color:#758c98; }
+.citation-details { font-size:13px; color:#4b6878; margin-top:12px; }
+.citation-details a { color:#426b8b; }
+@media (max-width:720px) { .citation-card { padding:18px 12px; } .chart-tick,.chart-label { font-size:13px; } }
+.chart-wrap { overflow-x:auto; }
+.chart-wrap svg { min-width:600px; }
