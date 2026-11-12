@@ -50,11 +50,19 @@
       const lo = years[0], hi = years[years.length - 1];
       const x = year => 90 + (year - lo) / Math.max(1, hi - lo) * 700;
       const y = value => 255 - value / maxValue * 205;
-      for (let i = 0; i <= 5; i++) {
-        const yy = 255 - i * 41;
-        element(svg, 'line', {x1:90,y1:yy,x2:790,y2:yy,class:'chart-grid'});
-        element(svg, 'text', {x:76,y:yy+4,'text-anchor':'end',class:'chart-tick'}, String(Math.round(maxValue*i/5)));
-      }
+      // Use citation ticks in multiples of ten and keep the upper bound visible.
+      const step = Math.max(10, Math.ceil(maxValue / 50) * 10);
+      const ticks = [];
+      for (let value = 0; value < maxValue; value += step) ticks.push(value);
+      ticks.push(maxValue);
+      ticks.forEach(value => {
+        const yy = y(value);
+        if (value > 0 && value < maxValue) {
+          element(svg, 'line', {x1:90,y1:yy,x2:790,y2:yy,class:'chart-grid'});
+        }
+        element(svg, 'text', {x:76,y:yy+4,'text-anchor':'end',class:'chart-tick'}, String(value));
+      });
+      element(svg, 'rect', {x:90,y:50,width:700,height:205,class:'chart-frame'});
       years.forEach(year => element(svg, 'text', {x:x(year),y:282,'text-anchor':'middle',class:'chart-tick'}, String(year)));
       element(svg, 'text', {x:440,y:315,'text-anchor':'middle',class:'chart-tick'}, xLabel);
       return {x,y};
@@ -63,7 +71,7 @@
     // Cumulative values are based on citations received in each calendar year.
     let sum = 0;
     const totals = annual.map(a => ({year:a.year, annual:a.citations, total:sum += a.citations}));
-    const cumulativeMax = Math.max(10, Math.ceil(sum / 10) * 10);
+    const cumulativeMax = (Math.floor(sum / 10) + 1) * 10;
     const cumulative = renderAxes(cumulativeSvg, totals.map(a => a.year), cumulativeMax, 'Citation year');
     element(cumulativeSvg, 'polyline', {
       points:totals.map(a => `${cumulative.x(a.year)},${cumulative.y(a.total)}`).join(' '), class:'chart-line'
@@ -77,8 +85,8 @@
 
     // Publications with matching year and citation count share a bubble.
     const years = [...new Set(papers.map(p => p.year))].sort((a,b) => a-b);
-    const maxCitations = Math.max(1, ...papers.map(p => p.citations));
-    const publicationMax = Math.max(5, Math.ceil(maxCitations / 5) * 5);
+    const maxCitations = Math.max(0, ...papers.map(p => p.citations));
+    const publicationMax = (Math.floor(maxCitations / 10) + 1) * 10;
     const plot = renderAxes(publicationsSvg, years, publicationMax, 'Publication year');
     const group = new Map();
     papers.forEach(p => {
